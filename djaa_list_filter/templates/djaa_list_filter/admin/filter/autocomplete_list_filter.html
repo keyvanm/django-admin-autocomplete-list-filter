@@ -1,9 +1,13 @@
 {% load i18n static %}
-<h3>{% blocktrans with filter_title=title %} By {{ filter_title }} {% endblocktrans %}</h3>
+<details data-filter-title="{{ title }}" open>
+    <summary>
+        {% blocktrans with filter_title=title %} By {{ filter_title }} {% endblocktrans %}
+    </summary>
 
-<form method="get">
-<ul>
-    <li>{{ spec.autocomplete_form.autocomplete_field }}</li>
-</ul>
-{{ spec.autocomplete_form.querystring_value }}
-</form>
+    <form method="get">
+        <ul>
+            <li>{{ spec.autocomplete_form.autocomplete_field }}</li>
+        </ul>
+        {{ spec.autocomplete_form.querystring_value }}
+    </form>
+</details>
